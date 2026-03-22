@@ -2,12 +2,13 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ v0.5 ]
   pull_request:
-    branches: [ master ]
+    branches: [ v0.5 ]
 
- jobs:
+jobs:
   build:
+
     runs-on: ubuntu-latest
     env:
       # ruleid: allowed-unsecure-commands
@@ -15,8 +16,6 @@ on:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: recursive
     - name: log untrusted output
       run: |
 
@@ -34,6 +33,7 @@ on:
         release: '9-2020-q2'
     - name: make
       run: make
+
       
     - uses: actions/setup-python@v2
       with:
