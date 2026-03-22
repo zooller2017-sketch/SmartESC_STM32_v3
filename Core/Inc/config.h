@@ -3,7 +3,7 @@
 #define BRAKEOFFSET 50
 #define BRAKEMAX 100
 
-// speed limits for invividual modes in kpH
+// speed limits for invividual modes in kmH
 #define SPEEDLIMIT_ECO 6
 #define SPEEDLIMIT_NORMAL 20
 #define SPEEDLIMIT_SPORT 50
