@@ -19,7 +19,7 @@ jobs:
         FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: log untrusted output
       run: |
 
@@ -32,19 +32,19 @@ jobs:
         # enable workflow command processing
         echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
     - name: arm-none-eabi-gcc
-      uses: fiam/arm-none-eabi-gcc@v1.0.2
+      uses: carlosperate/arm-none-eabi-gcc-action@v1
       with:
-        release: '9-2020-q2'
+        release: '15.2.Rel1'
     - name: make
       run: make
       
-    - uses: actions/setup-python@v2
+    - uses: actions/setup-python@v6
       with:
         python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
     - run: python tools/xiaotea/Scripts/prepareZip_online.py      
     - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v6
       with:
         path: ${{ github.workspace }}/tools/zip_output
         name: M365_v3_build_${{ github.run_number }}
