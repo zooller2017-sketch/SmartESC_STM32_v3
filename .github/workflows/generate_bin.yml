@@ -2,9 +2,10 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ v0.5 ]
-  pull_request:
-    branches: [ v0.5 ]
+    branches: 
+      -master
+  release: 
+    # pull_request: # ^ for testing
 
 jobs:
   build:
@@ -15,7 +16,7 @@ jobs:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: log untrusted output
       run: |
 
